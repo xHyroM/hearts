@@ -48,6 +48,16 @@ const Home: NextPage = ({ data }: any) => {
           </Table>
         </div>
       </main>
+
+      <footer className={styles.footer}>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Made with&nbsp;&nbsp;<img src="https://cdn.discordapp.com/emojis/870042189869248543.gif?size=96&quality=lossless" alt="Heart" className="logo" width='35px' />&nbsp;&nbsp;
+          by Hyro & Heny
+        </a>
+      </footer>
     </div>
   )
 }
