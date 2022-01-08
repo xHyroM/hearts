@@ -34,7 +34,10 @@ export const getSftp = async() => {
 export const newDb = async(rawContent: any) => {
     //await fs.writeFileSync('./database.db', rawContent);
 
-    const members = fs.readFileSync(`./list.txt`, 'utf-8').replace(/\r/g, '').split('\n');
+    const members = await (await hyttpo.request({
+        method: 'GET',
+        url: 'https://raw.githubusercontent.com/TrospySMP/hearts/master/list.txt'
+    })).data.replace(/\r/g, '').split('\n');
     const db = new Database(rawContent);
     const content = (db.prepare(`SELECT * FROM 'heartdata' ORDER BY hearts DESC`).all()).filter(o => members.includes(o.UUID));
 
