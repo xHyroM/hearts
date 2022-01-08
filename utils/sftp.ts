@@ -32,9 +32,9 @@ export const getSftp = async() => {
 }
 
 export const newDb = async(rawContent: any) => {
-    await fs.writeFileSync('./database.db', rawContent);
+    //await fs.writeFileSync('./database.db', rawContent);
 
-    const db = new Database('./database.db');
+    const db = new Database(rawContent);
     const content = db.prepare(`SELECT * FROM 'heartdata' ORDER BY hearts DESC`).all();
 
     content.forEach(async(user) => {
