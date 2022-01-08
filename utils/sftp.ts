@@ -34,8 +34,9 @@ export const getSftp = async() => {
 export const newDb = async(rawContent: any) => {
     //await fs.writeFileSync('./database.db', rawContent);
 
+    const members = fs.readFileSync(`./list.txt`, 'utf-8').replace(/\r/g, '').split('\n');
     const db = new Database(rawContent);
-    const content = db.prepare(`SELECT * FROM 'heartdata' ORDER BY hearts DESC`).all();
+    const content = (db.prepare(`SELECT * FROM 'heartdata' ORDER BY hearts DESC`).all()).filter(o => members.includes(o.UUID));
 
     content.forEach(async(user) => {
         user.PARSED_HEARTS = user.HEARTS / 2;
