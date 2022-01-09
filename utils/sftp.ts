@@ -32,8 +32,6 @@ export const getSftp = async() => {
 }
 
 export const newDb = async(rawContent: any) => {
-    //await fs.writeFileSync('./database.db', rawContent);
-
     const members = await (await hyttpo.request({
         method: 'GET',
         url: 'https://raw.githubusercontent.com/TrospySMP/hearts/master/list.txt'
