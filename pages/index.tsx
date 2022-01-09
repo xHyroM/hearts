@@ -54,7 +54,7 @@ const Home: NextPage = ({ data }: any) => {
           rel="noopener noreferrer"
         >
           Made with&nbsp;&nbsp;<img src="https://cdn.discordapp.com/emojis/870042189869248543.gif?size=96&quality=lossless" alt="Heart" className="logo" width='35px' />&nbsp;&nbsp;
-          <b>by Hyro & Heny</b><br>
+          <b>by Hyro & Heny</b><br />
 	 Srdíčka se updatují každou půl hodinu.
         </a>
       </footer>
