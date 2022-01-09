@@ -16,7 +16,6 @@ const Home: NextPage = ({ data }: any) => {
       <Head>
         <title>Trospy SMP</title>
         <meta name="description" content="Srdíčka" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
