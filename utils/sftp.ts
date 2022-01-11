@@ -1,7 +1,6 @@
 import client from 'ssh2-sftp-client';
 import Database from 'better-sqlite3';
-import hyttpo from 'hyttpo';
-import fs from 'fs';
+import { users } from './constants';
 
 export const getSftp = async() => {
     // @ts-expect-error
@@ -32,22 +31,14 @@ export const getSftp = async() => {
 }
 
 export const newDb = async(rawContent: any) => {
-    const members = await (await hyttpo.request({
-        method: 'GET',
-        url: 'https://raw.githubusercontent.com/TrospySMP/hearts/master/list.txt'
-    })).data.replace(/\r/g, '').split('\n');
     const db = new Database(rawContent);
-    const content = (db.prepare(`SELECT * FROM 'heartdata' ORDER BY hearts DESC`).all()).filter(o => members.includes(o.UUID));
+    const content = (db.prepare(`SELECT * FROM 'heartdata' ORDER BY hearts DESC`).all()).filter(o => Object.keys(users).includes(o.UUID));
 
     content.forEach(async(user) => {
         user.PARSED_HEARTS = user.HEARTS / 2;
 
-        const data = await (await hyttpo.request({
-            method: 'GET',
-            url: `https://sessionserver.mojang.com/session/minecraft/profile/${user.UUID}`
-        })).data;
-        
-        user.USERNAME = data.name;
+        // @ts-expect-error
+        user.USERNAME = users[user.UUID as string];
     })
 
     return content;
