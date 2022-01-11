@@ -18,4 +18,5 @@ export const users = {
     '992b9f50-142c-4923-bffa-1eaada732479': 'B3ski',
     'b22b20c2-e5f5-426f-9278-fba63c82f20a': 'xFinta',
     'cf9315a9-84f5-446d-acaf-72c10179ef42': 'Antys',
+    '3456406c-ad2c-47ee-a785-3dbf51d3012b': 'TizR_'
 }

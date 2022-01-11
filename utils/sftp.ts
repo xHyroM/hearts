@@ -23,7 +23,7 @@ export const getSftp = async() => {
 
         // @ts-expect-error
         global.sftp = data;
-    }, 3600000)
+    }, 1800000)
 
     // @ts-expect-error
     global.sftp = content;
