@@ -49,14 +49,12 @@ const Home: NextPage = ({ data }: any) => {
       </main>
 
       <footer className={styles.footer}>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <span>
           Made with&nbsp;&nbsp;<img src="https://cdn.discordapp.com/emojis/870042189869248543.gif?size=96&quality=lossless" alt="Heart" className="logo" width='35px' />&nbsp;&nbsp;
-          <b>by Hyro & Heny</b><br />
-	 Srdíčka se updatují každou půl hodinu.
-        </a>
+          <b>by Hyro & Heny</b>
+          <br />
+          Srdíčka se updatují každou půl hodinu.
+        </span>
       </footer>
     </div>
   )
